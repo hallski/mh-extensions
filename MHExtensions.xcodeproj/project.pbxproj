@@ -14,6 +14,8 @@
 		40479EFA130EA38B008B3CB9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 40479EF8130EA38B008B3CB9 /* InfoPlist.strings */; };
 		40479EFD130EA38B008B3CB9 /* MHExtensionsTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 40479EFC130EA38B008B3CB9 /* MHExtensionsTests.h */; };
 		40479EFF130EA38B008B3CB9 /* MHExtensionsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 40479EFE130EA38B008B3CB9 /* MHExtensionsTests.m */; };
+		40479F0A130EA3A0008B3CB9 /* NSArray+MHExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 40479F08130EA3A0008B3CB9 /* NSArray+MHExtensions.h */; };
+		40479F0B130EA3A0008B3CB9 /* NSArray+MHExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 40479F09130EA3A0008B3CB9 /* NSArray+MHExtensions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,15 +34,17 @@
 		40479EE1130EA38A008B3CB9 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		40479EE2130EA38A008B3CB9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		40479EE3130EA38A008B3CB9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		40479EE6130EA38B008B3CB9 /* MHExtensions-Info.plist */ = {isa = PBXFileReference; path = "MHExtensions-Info.plist"; sourceTree = "<group>"; };
+		40479EE6130EA38B008B3CB9 /* MHExtensions-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MHExtensions-Info.plist"; sourceTree = "<group>"; };
 		40479EE8130EA38B008B3CB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		40479EEA130EA38B008B3CB9 /* MHExtensions-Prefix.pch */ = {isa = PBXFileReference; path = "MHExtensions-Prefix.pch"; sourceTree = "<group>"; };
+		40479EEA130EA38B008B3CB9 /* MHExtensions-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHExtensions-Prefix.pch"; sourceTree = "<group>"; };
 		40479EF0130EA38B008B3CB9 /* MHExtensionsTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHExtensionsTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		40479EF7130EA38B008B3CB9 /* MHExtensionsTests-Info.plist */ = {isa = PBXFileReference; path = "MHExtensionsTests-Info.plist"; sourceTree = "<group>"; };
+		40479EF7130EA38B008B3CB9 /* MHExtensionsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MHExtensionsTests-Info.plist"; sourceTree = "<group>"; };
 		40479EF9130EA38B008B3CB9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		40479EFB130EA38B008B3CB9 /* MHExtensionsTests-Prefix.pch */ = {isa = PBXFileReference; path = "MHExtensionsTests-Prefix.pch"; sourceTree = "<group>"; };
+		40479EFB130EA38B008B3CB9 /* MHExtensionsTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MHExtensionsTests-Prefix.pch"; sourceTree = "<group>"; };
 		40479EFC130EA38B008B3CB9 /* MHExtensionsTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MHExtensionsTests.h; sourceTree = "<group>"; };
 		40479EFE130EA38B008B3CB9 /* MHExtensionsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MHExtensionsTests.m; sourceTree = "<group>"; };
+		40479F08130EA3A0008B3CB9 /* NSArray+MHExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+MHExtensions.h"; sourceTree = "<group>"; };
+		40479F09130EA3A0008B3CB9 /* NSArray+MHExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+MHExtensions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 		40479EE4130EA38A008B3CB9 /* MHExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				40479F08130EA3A0008B3CB9 /* NSArray+MHExtensions.h */,
+				40479F09130EA3A0008B3CB9 /* NSArray+MHExtensions.m */,
 				40479EE5130EA38B008B3CB9 /* Supporting Files */,
 			);
 			path = MHExtensions;
@@ -147,6 +153,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40479F0A130EA3A0008B3CB9 /* NSArray+MHExtensions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40479F0B130EA3A0008B3CB9 /* NSArray+MHExtensions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
