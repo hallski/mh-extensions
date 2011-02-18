@@ -7,6 +7,7 @@
 //
 
 #import "MHExtensionsTests.h"
+#import "NSArray+MHExtensions.h"
 
 
 @implementation MHExtensionsTests
@@ -25,9 +26,29 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testArrayByApplyingBlock
 {
-    STFail(@"Unit tests are not implemented yet in MHExtensionsTests");
+    NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    
+    // Test to change the objects in array
+    NSArray *newArray = [array arrayByApplyingBlock:^ id (id obj) {
+        return [obj stringByAppendingString:@"x"];
+    }];
+    
+    NSArray *testArray = [NSArray arrayWithObjects:@"1x", @"2x", @"3x", nil];
+    STAssertEqualObjects(testArray, newArray, nil);
+    
+    // Test removal of an object in the array
+    newArray = [array arrayByApplyingBlock:^ id (id obj) {
+        if ([obj isEqualToString:@"2"]) {
+            return nil;
+        }
+        
+        return obj;
+    }];
+    
+    testArray = [NSArray arrayWithObjects:@"1", @"3", nil];
+    STAssertEqualObjects(testArray, newArray, nil);
 }
 
 @end
