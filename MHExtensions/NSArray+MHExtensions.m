@@ -11,6 +11,27 @@
 
 @implementation NSArray (MHExtensions)
 
+- (id)first
+{
+    return [self objectAtIndex:0];
+}
+
+- (id)rest
+{
+    NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[self count] - 1];
+    BOOL skippedFirst = NO;
+    
+    for (id object in self) {
+        if (skippedFirst == NO) {
+            skippedFirst = YES;
+            continue;
+        }
+        [retVal addObject:object];
+    }
+    
+    return [retVal copy];
+}
+
 - (NSArray *)map:(id (^) (id object))block
 {
     NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[self count]];

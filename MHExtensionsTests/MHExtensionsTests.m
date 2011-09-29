@@ -26,6 +26,21 @@
     [super tearDown];
 }
 
+- (void)testFirst
+{
+    NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    
+    STAssertEquals(@"1", [array first], nil);
+}
+
+- (void)testRest
+{
+    NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    NSArray *newArray = [NSArray arrayWithObjects:@"2", @"3", nil];
+    
+    STAssertEqualObjects(newArray, [array rest], nil);
+}
+
 - (void)testMap
 {
     NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
@@ -54,7 +69,6 @@
     
     NSArray *testArray = [NSArray arrayWithObjects:@"1", @"3", nil];
     STAssertEqualObjects(testArray, newArray, nil);
-
 }
 
 - (void)testReduce
