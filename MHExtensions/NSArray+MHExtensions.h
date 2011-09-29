@@ -17,6 +17,6 @@
 - (NSArray *)map:(id (^) (id object))block;
 - (NSArray *)filter:(BOOL (^) (id object))block;
 
-- (id)reduce:(id (^) (id object, id rem))block startValue:(id)startValue;
+- (id)reduce:(id (^) (id object, id value))block startValue:(id)startValue;
 
 @end
