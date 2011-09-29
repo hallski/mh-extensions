@@ -13,23 +13,20 @@
 
 - (id)first
 {
+    if ([self count] == 0) {
+        return nil;
+    }
+    
     return [self objectAtIndex:0];
 }
 
-- (id)rest
+- (NSArray *)rest
 {
-    NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[self count] - 1];
-    BOOL skippedFirst = NO;
-    
-    for (id object in self) {
-        if (skippedFirst == NO) {
-            skippedFirst = YES;
-            continue;
-        }
-        [retVal addObject:object];
+    if ([self count] < 2) {
+        return [NSArray array];
     }
     
-    return [retVal copy];
+    return [self subarrayWithRange:NSMakeRange(1, [self count] - 1)];
 }
 
 - (NSArray *)map:(id (^) (id object))block

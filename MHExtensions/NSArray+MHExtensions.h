@@ -12,7 +12,7 @@
 @interface NSArray (MHExtensions)
     
 - (id)first;
-- (id)rest;
+- (NSArray *)rest;
 
 - (NSArray *)map:(id (^) (id object))block;
 - (NSArray *)filter:(BOOL (^) (id object))block;
