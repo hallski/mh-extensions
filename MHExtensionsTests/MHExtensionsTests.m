@@ -26,29 +26,56 @@
     [super tearDown];
 }
 
-- (void)testArrayByApplyingBlock
+- (void)testMap
 {
     NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
     
     // Test to change the objects in array
-    NSArray *newArray = [array arrayByApplyingBlock:^ id (id obj) {
+    NSArray *newArray = [array map:^ id (id obj) {
         return [obj stringByAppendingString:@"x"];
     }];
     
     NSArray *testArray = [NSArray arrayWithObjects:@"1x", @"2x", @"3x", nil];
     STAssertEqualObjects(testArray, newArray, nil);
     
+}
+
+- (void)testFilter
+{
+    NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
     // Test removal of an object in the array
-    newArray = [array arrayByApplyingBlock:^ id (id obj) {
+    NSArray *newArray = [array filter:^ BOOL (id obj) {
         if ([obj isEqualToString:@"2"]) {
-            return nil;
+            return NO;
         }
-        
-        return obj;
+
+        return YES;
     }];
     
-    testArray = [NSArray arrayWithObjects:@"1", @"3", nil];
+    NSArray *testArray = [NSArray arrayWithObjects:@"1", @"3", nil];
     STAssertEqualObjects(testArray, newArray, nil);
+
+}
+
+- (void)testReduce
+{
+    NSArray *array = [NSArray arrayWithObjects:@"1", @"2", @"3", nil];
+    NSString *testString = @"a123";
+    
+    NSString *reducedString = [array reduce:^ id (id object, id value) {
+        return [((NSString *)value) stringByAppendingString:((NSString *)object)];
+    }
+                                 startValue:@"a"];
+    
+    STAssertEqualObjects(testString, reducedString, nil);
+    
+    array = [NSArray arrayWithObjects:[NSNumber numberWithInt:1], [NSNumber numberWithInt:2], [NSNumber numberWithInt:3], [NSNumber numberWithInt:4], nil];
+    
+    NSNumber *result = [array reduce:^ id (id object, id value) {
+        return [NSNumber numberWithInt:[object intValue] + [value intValue]];
+    }
+                          startValue:[NSNumber numberWithInt:5]];
+    STAssertEquals(15, [result intValue], nil);
 }
 
 @end

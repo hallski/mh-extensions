@@ -11,7 +11,7 @@
 
 @implementation NSArray (MHExtensions)
 
-- (NSArray *)arrayByApplyingBlock:(id (^) (id object))block
+- (NSArray *)map:(id (^) (id object))block
 {
     NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[self count]];
     
@@ -24,5 +24,31 @@
     
     return [NSArray arrayWithArray:retVal];
 }
+
+- (NSArray *)filter:(BOOL (^) (id object))block;
+{
+    NSMutableArray *retVal = [NSMutableArray arrayWithCapacity:[self count]];
+    
+    for (id object in self) {
+        if (block(object)) {
+            [retVal addObject:object];
+        }
+    }
+    
+    return [NSArray arrayWithArray:retVal];
+}
+
+
+- (id)reduce:(id (^) (id object, id rem))block startValue:(id)startValue
+{
+    id value = startValue;
+    
+    for (id object in self) {
+        value = block(object, value);   
+    }
+    
+    return value;
+}
+
 
 @end

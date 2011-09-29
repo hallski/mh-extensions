@@ -11,6 +11,9 @@
 
 @interface NSArray (MHExtensions)
     
-- (NSArray *)arrayByApplyingBlock:(id (^) (id object))block;
+- (NSArray *)map:(id (^) (id object))block;
+- (NSArray *)filter:(BOOL (^) (id object))block;
+
+- (id)reduce:(id (^) (id object, id rem))block startValue:(id)startValue;
 
 @end
